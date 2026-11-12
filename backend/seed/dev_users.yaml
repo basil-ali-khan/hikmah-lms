@@ -1,0 +1,53 @@
+# LOCAL DEVELOPMENT ONLY. Loaded by: uv run python manage.py seed_dev
+# The command refuses to run unless DEBUG=True and DEV_SEED_ALLOWED=True.
+# These accounts and this password must never exist in production.
+password: "Hikmah-TPuqveOtNt!"
+users:
+  - email: superadmin@hikmah.test
+    name: Super Admin
+    role: superadmin
+    state: full system access
+  - email: manager@hikmah.test
+    name: Maryam Course-Manager
+    role: manager
+    state: courses, pricing, payment queue
+  - email: instructor1@hikmah.test
+    name: Ustadh Abdullah Rahman
+    role: instructor
+    state: teaches Foundations of Aqeedah + Seerah Essentials
+  - email: instructor2@hikmah.test
+    name: Ustadh Yusuf Karim
+    role: instructor
+    state: teaches only Fiqh of Worship (scope test)
+  - email: student.active@hikmah.test
+    name: Ahmed Khan
+    role: student
+    state: paid & active in Aqeedah, partway through, quiz attempt, attendance
+  - email: student.pending@hikmah.test
+    name: Bilal Ahmed
+    role: student
+    state: Aqeedah receipt pending verification
+  - email: student.rejected@hikmah.test
+    name: Usman Ali
+    role: student
+    state: Aqeedah payment needs resubmission
+  - email: student.new@hikmah.test
+    name: Hamza Tariq
+    role: student
+    state: verified email, incomplete profile
+  - email: student.unverified@hikmah.test
+    name: Zaid Hassan
+    role: student
+    state: email not verified
+  - email: student.expired@hikmah.test
+    name: Omar Farooq
+    role: student
+    state: Seerah Essentials access expired
+  - email: student.graduate@hikmah.test
+    name: Ibrahim Siddiqui
+    role: student
+    state: completed Seerah Essentials, certificate issued
+  - email: student.female@hikmah.test
+    name: Aisha Malik
+    role: student
+    state: female profile (eligibility tests), no enrollments

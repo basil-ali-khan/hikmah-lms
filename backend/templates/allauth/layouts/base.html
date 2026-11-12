@@ -1,0 +1,29 @@
+{% load i18n static %}<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block head_title %}{% endblock head_title %} · Hikmah Staff</title>
+  <link rel="icon" href="{% static 'brand/favicon.svg' %}">
+  <link rel="stylesheet" href="{% static 'brand/staff-auth.css' %}">
+  {% block extra_head %}{% endblock extra_head %}
+</head>
+<body>
+  <main class="card">
+    <div class="brand"><span class="mark" aria-hidden="true"></span><span>Hikmah Staff</span></div>
+    {% block body %}
+      {% if messages %}<ul class="messages">{% for message in messages %}<li class="{{ message.tags }}">{{ message }}</li>{% endfor %}</ul>{% endif %}
+      {% block content %}{% endblock content %}
+      {% if user.is_authenticated %}
+        <nav class="links">
+          {% url 'mfa_index' as mfa_url_ %}{% if mfa_url_ %}<a href="{{ mfa_url_ }}">{% trans "Two-factor authentication" %}</a>{% endif %}
+          <a href="{% url 'account_change_password' %}">{% trans "Change password" %}</a>
+          <a href="/{{ request.resolver_match.namespaces.0|default:'' }}">{% trans "Staff panel" %}</a>
+          <a href="{% url 'account_logout' %}">{% trans "Sign out" %}</a>
+        </nav>
+      {% endif %}
+    {% endblock body %}
+  </main>
+  {% block extra_body %}{% endblock extra_body %}
+</body>
+</html>

@@ -1,0 +1,18 @@
+:root{--p:#003399;--a:#FFDF00;--ink:#1E1F25;--muted:#5A6472;--line:#DADADA}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:#F2F2F2;font:15px/1.5 Roboto,system-ui,sans-serif;color:var(--ink);padding:16px}
+.card{width:100%;max-width:420px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px}
+.brand{display:flex;align-items:center;gap:10px;font:800 18px Raleway,system-ui,sans-serif;color:var(--p);margin-bottom:18px}
+.mark{width:30px;height:30px;border-radius:8px;background:var(--p);border:3px solid var(--a)}
+h1{font:700 22px Raleway,system-ui,sans-serif;margin:0 0 12px}
+p{color:var(--muted)}
+label{display:block;font-size:13px;font-weight:500;margin:12px 0 6px;color:#34495E}
+input[type=email],input[type=text],input[type=password],input[type=number]{width:100%;height:46px;border:1px solid #C4CBD4;border-radius:10px;padding:0 12px;font-size:16px}
+input[type=checkbox]{width:18px;height:18px;accent-color:var(--p);vertical-align:middle}
+button,input[type=submit]{margin-top:16px;width:100%;min-height:46px;border:0;border-radius:10px;background:var(--p);color:#fff;font-weight:600;font-size:15px;cursor:pointer}
+a{color:var(--p)}
+.messages{list-style:none;padding:0;margin:0 0 12px}.messages li{background:#EAF0FB;border-radius:10px;padding:10px 12px;font-size:13px;margin-bottom:6px}
+.messages li.warning{background:#FDEBD9}.messages li.error{background:#FBE4E4}
+.links{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px;font-size:13px}
+ul.errorlist{color:#9B1C1C;font-size:13px;padding-left:16px}
+img{max-width:100%}

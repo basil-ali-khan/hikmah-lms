@@ -1,0 +1,3 @@
+/* Hikmah staff panel tweaks (Unfold). */
+:root { --hikmah-accent: #FFDF00; }
+#nav-sidebar a[aria-current="page"], .bg-primary-600 { box-shadow: inset 3px 0 0 var(--hikmah-accent); }

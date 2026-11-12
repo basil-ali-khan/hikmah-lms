@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{ subject }}</title>
+</head>
+<body style="margin:0;padding:0;background:{{ site.color_surface }};font-family:Roboto,Helvetica,Arial,sans-serif;color:{{ site.color_text }};">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:{{ site.color_surface }};padding:24px 12px;">
+  <tr><td align="center">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:600px;background:#ffffff;border-radius:10px;overflow:hidden;">
+      <tr>
+        <td style="background:{{ site.color_primary }};border-bottom:4px solid {{ site.color_accent }};padding:16px 24px;color:#ffffff;font:800 18px Raleway,Helvetica,Arial,sans-serif;">
+          {% if logo_url %}<img src="{{ logo_url }}" alt="{{ site.institute_name }}" height="32" style="vertical-align:middle;">{% else %}{{ site.institute_name }}{% endif %}
+        </td>
+      </tr>
+      <tr>
+        <td class="content" style="padding:24px;font-size:15px;line-height:1.6;color:{{ site.color_heading }};">
+          <style>.content h2{margin:0 0 12px;font:700 21px/1.3 Raleway,Helvetica,Arial,sans-serif;color:{{ site.color_text }}} .content a{color:{{ site.color_primary }};font-weight:600} .content blockquote{margin:12px 0;padding-left:12px;border-left:3px solid #DADADA;color:{{ site.color_text }}}</style>
+          {{ body|safe }}
+        </td>
+      </tr>
+      <tr>
+        <td style="padding:16px 24px;border-top:1px solid #ECEEF1;font-size:12px;color:#5A6472;line-height:1.5;">
+          {{ site.institute_name }} · <a href="{{ site_url }}/privacy" style="color:#5A6472;">Privacy</a>
+          {% if site.support_email %} · Support: <a href="mailto:{{ site.support_email }}" style="color:#5A6472;">{{ site.support_email }}</a>{% endif %}
+          <br>You can change reminder emails in <a href="{{ site_url }}/profile/security" style="color:#5A6472;">notification settings</a>.
+        </td>
+      </tr>
+    </table>
+  </td></tr>
+</table>
+</body>
+</html>

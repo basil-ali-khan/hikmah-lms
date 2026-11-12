@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+/*
+ * Brand tokens. Defaults match hikmahinstitute.org.pk; the root layout overrides the --brand-*
+ * variables from Site Settings (staff panel), so colours/fonts change without a deploy.
+ */
+:root {
+  --brand-primary: #003399;
+  --brand-accent: #ffdf00;
+  --brand-heading: #34495e;
+  --brand-text: #1e1f25;
+  --brand-surface: #f2f2f2;
+  --brand-font-heading: var(--font-raleway), system-ui, sans-serif;
+  --brand-font-body: var(--font-roboto), system-ui, sans-serif;
+}
+
+@theme inline {
+  --color-primary: var(--brand-primary);
+  --color-primary-soft: color-mix(in srgb, var(--brand-primary) 8%, white);
+  --color-primary-strong: color-mix(in srgb, var(--brand-primary) 80%, black);
+  --color-accent: var(--brand-accent);
+  --color-accent-soft: color-mix(in srgb, var(--brand-accent) 35%, white);
+  --color-heading: var(--brand-heading);
+  --color-ink: var(--brand-text);
+  --color-surface: var(--brand-surface);
+  --color-canvas: #fafbfc;
+  --color-line: #dadada;
+  --color-line-soft: #eceef1;
+  --color-muted: #5a6472;
+  --color-subtle: #4a5563;
+  --color-ok: #1e6b3e;
+  --color-ok-soft: #e1f3e8;
+  --color-warn: #8a4500;
+  --color-warn-soft: #fdebd9;
+  --color-bad: #9b1c1c;
+  --color-bad-soft: #fbe4e4;
+  --color-info: #0a2a7a;
+  --font-heading: var(--brand-font-heading);
+  --font-sans: var(--brand-font-body);
+  --radius-card: 14px;
+}
+
+@layer base {
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+  color: var(--color-ink);
+  font-weight: 700;
+}
+
+/* Inputs never below 16px so iOS doesn't zoom on focus. */
+input,
+select,
+textarea {
+  font-size: 16px;
+}
+
+:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--brand-primary) 55%, white);
+  outline-offset: 2px;
+}
+}
+
+/* Rich text from the API (already sanitized server-side). */
+.prose-hikmah {
+  line-height: 1.65;
+  color: var(--color-subtle);
+}
+.prose-hikmah h2 {
+  font-size: 1.25rem;
+  margin: 1.2em 0 0.5em;
+}
+.prose-hikmah h3 {
+  font-size: 1.1rem;
+  margin: 1em 0 0.4em;
+}
+.prose-hikmah p {
+  margin: 0.6em 0;
+}
+.prose-hikmah ul,
+.prose-hikmah ol {
+  padding-left: 1.3em;
+  margin: 0.6em 0;
+}
+.prose-hikmah ul {
+  list-style: disc;
+}
+.prose-hikmah ol {
+  list-style: decimal;
+}
+.prose-hikmah a {
+  color: var(--brand-primary);
+  font-weight: 500;
+  text-decoration: underline;
+}
+.prose-hikmah strong {
+  color: var(--color-ink);
+}
+.prose-hikmah blockquote {
+  border-left: 3px solid var(--color-line);
+  padding-left: 12px;
+  color: var(--color-ink);
+}
+
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

@@ -1,0 +1,17 @@
+{% extends "allauth/layouts/base.html" %}
+{% block head_title %}Sign in{% endblock %}
+{% block content %}
+<h1>Staff sign in</h1>
+<p>For administrators and instructors. Students sign in on the main website.</p>
+<form method="post" action="{% url 'account_login' %}">
+  {% csrf_token %}
+  {% if form.non_field_errors %}<ul class="errorlist">{% for e in form.non_field_errors %}<li>{{ e }}</li>{% endfor %}</ul>{% endif %}
+  <label for="id_login">Email</label>
+  <input type="email" name="login" id="id_login" autocomplete="email" required value="{{ form.login.value|default:'' }}">
+  <label for="id_password">Password</label>
+  <input type="password" name="password" id="id_password" autocomplete="current-password" required>
+  {% if redirect_field_value %}<input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}">{% endif %}
+  <button type="submit">Sign in</button>
+</form>
+<p style="margin-top:14px;font-size:13px"><a href="{% url 'account_reset_password' %}">Forgot your password?</a></p>
+{% endblock %}
